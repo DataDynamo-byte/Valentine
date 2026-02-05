@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>This one is for my Anu</title>
+
+  <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    @font-face {
+      font-family: digit;
+      src: url('digital-7_mono.ttf') format("truetype");
+    }
+  </style>
+
+  <link href="css/default.css" type="text/css" rel="stylesheet">
+
+  <!-- REQUIRED JS FILES -->
+  <script src="js/jquery.js"></script>
+  <script src="js/garden.js"></script>
+  <script src="js/functions.js"></script>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" class="music-btn">
+  <i class="fas fa-pause"></i>
+</button>
+
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicToggle");
+  const icon = btn.querySelector("i");
+
+  // Play music if coming from YES
+  if (localStorage.getItem("playMusic") === "yes") {
+    music.volume = 0.4;
+    music.play();
+    localStorage.removeItem("playMusic");
+  }
+
+  btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      icon.classList.remove("fa-play");
+      icon.classList.add("fa-pause");
+    } else {
+      music.pause();
+      icon.classList.remove("fa-pause");
+      icon.classList.add("fa-play");
+    }
+  });
+</script>
+
+
+<div id="mainDiv">
+  <div id="content">
+    <div id="code">
+      <span class="comments">/**</span><br />
+      <span class="space"/><span class="comments">* THE CODE OF LOVE</span><br />
+      <span class="space"/><span class="comments">*/</span><br />
+      Hey My baby, My girl, My love !<br />
+      I can't even express what I'm feeling right now<br />
+      <span class="comments">// I love you soo MUCH.</span><br />
+      I feel soo happy and blesses to have you in my life...;<br />
+      <span class="comments">// Just looking at you brings me to calmness.</span><br />
+      Your everything gets imprinted in my heart;<br />
+      And as the time is goin on;<br />
+      The Bond between us is only growing stronger and stronger;<br />
+      Journey filled with ups and down but at the end we always come out together and stronger;<br />
+      We have traveled a long way together and there is yet a long way to go and with you I'm happy and excited to go all the way.;<br />
+      Offc there have been fights;<br />
+      <span class="comments">// And I'm sure there will be more but I'll always come back to you only my baby.</span><br />
+      you're my One TRUE LOVE.;<br /><br />
+
+      All I want to say is:<br />
+      Baby, I will love you forever;<br /><br />
+
+      Now If you want to hug me you can touch the heart below<br /><br />
+
+      <span id="heartspan">
+        <a href="image.jpg">
+          <i class="fas fa-heart" id="icon"></i>
+        </a>
+      </span>
+    </div>
+
+    <div id="loveHeart">
+      <canvas id="garden"></canvas>
+
+      <div id="words">
+        <div id="messages">
+          ADi AnU FOREVER
+          <div id="elapseClock"></div>
+        </div>
+
+        <div id="loveu">
+          I LOVE YOU SO MUCH<br/>
+          <div class="signature">- Adi/Bear</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var offsetX = $("#loveHeart").width() / 2;
+  var offsetY = $("#loveHeart").height() / 2 - 55;
+
+  var together = new Date();
+  together.setFullYear(2021, 12, 27);
+  together.setHours(0);
+  together.setMinutes(30);
+  together.setSeconds(0);
+  together.setMilliseconds(0);
+
+  if (!document.createElement('canvas').getContext) {
+    alert("Your browser does not support HTML5 canvas");
+  } else {
+    setTimeout(function () {
+      startHeartAnimation();
+    }, 5000);
+
+    timeElapse(together);
+    setInterval(function () {
+      timeElapse(together);
+    }, 500);
+
+    adjustCodePosition();
+    $("#code").typewriter();
+  }
+</script>
+
+</body>
+</html>
